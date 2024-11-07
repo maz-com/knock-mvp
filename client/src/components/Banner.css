@@ -1,0 +1,22 @@
+.container {
+  border-bottom: solid #013220 1px;
+  margin: 0;
+}
+
+.navbar {
+  padding: 1em 0;
+}
+
+.title {
+  padding: 2em 0;
+}
+
+.navbutton {
+  text-align: right;
+  margin-right: 2rem;
+}
+
+h1 {
+  font-family: "Righteous", sans-serif;
+  font-size: 50px;
+}
