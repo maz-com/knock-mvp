@@ -3,6 +3,7 @@ import axios from "axios";
 import Banner from "./components/Banner";
 import UserView from "./components/UserView";
 import AdminView from "./components/AdminView";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {

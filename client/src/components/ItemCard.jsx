@@ -9,7 +9,7 @@ const ItemCard = ({ item, setItems }) => {
     const updateAvailability = async () => {
       try {
         //communcate with databasa
-        if (item.is_available === "1") setAvailability(item.is_available);
+        if (item.is_available === 1) setAvailability("not available");
       } catch (error) {
         // handle errors
         console.error(error);
@@ -20,21 +20,24 @@ const ItemCard = ({ item, setItems }) => {
   }, []);
 
   return (
-    <div className="row">
-      <div className="column">
-        <div className="card">
-          <div className="section">
-            <h3>{item.title}</h3>
-          </div>
-          <div className="section">
-            <p>{item.description}</p>
-          </div>
-          <div className="section">
-            <p>{availability}</p>
-          </div>
-        </div>
+    // <div className="row">
+    //   <div className="column">
+    <div className="card">
+      <div>
+        <img src={item.image} alt={item.title} />
+      </div>
+      <div className="section">
+        <h3>{item.title}</h3>
+      </div>
+      <div className="section">
+        <p>{item.description}</p>
+      </div>
+      <div className="section">
+        <p>{availability}</p>
       </div>
     </div>
+    //   </div>
+    // </div>
   );
 };
 
