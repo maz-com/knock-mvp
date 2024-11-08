@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Banner from "./components/Banner";
+import SideBanner from "./components/SideBanner";
 import UserView from "./components/UserView";
 import AdminView from "./components/AdminView";
 //import "bootstrap/dist/css/bootstrap.min.css";
@@ -40,8 +41,13 @@ function App() {
         <Banner />
       </header>
       <main>
-        <UserView items={items} />
-        {/* <AdminView /> */}
+        <div className="side-banner-container">
+          <SideBanner />
+        </div>
+        <div className="views-container">
+          <UserView items={items} />
+          {/* <AdminView /> */}
+        </div>
       </main>
     </div>
   );

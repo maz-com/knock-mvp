@@ -9,7 +9,7 @@ const Banner = () => {
         </div>
       </div>
       <div className="title container">
-        <h1>The Community ToolBox</h1>
+        <h1>Community ToolBox</h1>
       </div>
       <div className="rolling-text container">
         <p>Share & Re-Use</p>

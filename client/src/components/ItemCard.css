@@ -1,15 +1,88 @@
 /* Style the counter cards */
-.card {
-  padding: 16px;
-  text-align: center;
-  display: inline-block;
-  background-color: none;
-  border: solid #013220;
-  min-height: 400px;
-  max-width: 25%;
+
+h3 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.section {
-  border-bottom: solid #013220;
-  padding: 1em 0;
+.card {
+  padding: 0;
+  text-align: center;
+  display: inline-block;
+  background-color: #f0fff0;
+  border: solid #013220 1px;
+  max-height: 400px;
+  max-width: 250px;
+  min-width: 250px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.card-img,
+.card-title,
+.card-description {
+  border-bottom: solid #013220 1px;
+  padding: 1em;
+  overflow: hidden;
+}
+
+.card-img {
+  grid-area: 1 / 1 / 4 / 3;
+  padding: 0;
+}
+.card-title {
+  grid-area: 4 / 1 / 5 / 3;
+  text-align: left;
+}
+.card-description {
+  grid-area: 5 / 1 / 7 / 3;
+  text-align: left;
+}
+.card-available,
+.card-unavailable {
+  grid-area: 7 / 1 / 8 / 2;
+  border-right: solid #013220 1px;
+  display: table;
+}
+
+.card-available p,
+.card-unavailable p {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.card-available {
+  background-color: #c2fbd7;
+}
+
+.card-unavailable {
+  background-color: #ff99bb;
+  color: #490018;
+}
+
+.card-button {
+  grid-area: 7 / 2 / 8 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-button button {
+  border: none;
+  height: 100%;
+  width: 100%;
+  background: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif,
+    monospace;
+  font-size: 16px;
+}
+
+.card-button button:hover {
+  background-color: #cee0ce;
+  cursor: pointer;
 }

@@ -23,7 +23,7 @@ CREATE TABLE `categories`(
 CREATE TABLE `users`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL,
-    `image` VARCHAR(255) NULL,
+    `image` VARCHAR(255) NULL
 );
 ALTER TABLE
     `items` ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`);
@@ -42,5 +42,11 @@ INSERT INTO `mvp_db`.`categories` (`name`) VALUES ('Games & Hobbies');
 /* hard code users */
 INSERT INTO `mvp_db`.`users` (`username`) VALUES ('Neighbour001');
 
-/* hard code item */
-INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `user_id`, `type`) VALUES ('Drill (cordless)\nDrill (cordless)\nDrill (cordless)', 'I have a Bosch GSB 18V-EC drill available to borrow, please recharge the battery before returning it.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/drill-cordless-hands-1080x720.jpg', '2', '1', 'lend');
+/* hard code items */
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `user_id`, `type`) VALUES ('Drill (cordless)\n', 'I have a Bosch GSB 18V-EC drill available to borrow, please recharge the battery before returning it.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/drill-cordless-hands-1080x720.jpg', '2', '1', 'lend');
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `is_available`, `user_id`, `type`) VALUES ('Projector', 'I have an Optoma DX349 available to borrow.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/89eea43c0d834a3c962b9359a8012c10-projector-2048w.png', '6', '1', '1', 'lend');
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `is_available`, `user_id`, `type`) VALUES ('Lawnmower (cordless)\n', 'I have a Stihl RMA 339 battery powered lawnmower available to borrow', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/Stihl_Lawnmower_RMA-339_1080x720.jpg', '3', '0', '1', 'lend');
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `is_available`, `user_id`, `type`) VALUES ('Tent (3 Person)', 'I have a North Face 3 person tent available to borrow.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/5e856ac4f6514a70a783c01ae67f4497-3-person-tent-2048w.png', '4', '0', '1', 'lend');
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `is_available`, `user_id`, `type`) VALUES ('Sewing Machine\n', 'I have a John Lewis JL 110 sewing machine available to borrow, with needle sizes 10, 12, 14 and 16.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/598cec7182554d2697e5155236d6e9f5-sewing-machine-2048w.png', '7', '0', '1', 'lend');
+INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `is_available`, `user_id`, `type`) VALUES ('Carpet Cleaner\n', 'I have a Kärcher Puzzi 10/1 carpet cleaner available to borrow. You will need to buy cleaning tablets to use it.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/carpet-cleaner-hands-1080x720.jpg', '1', '1', '1', 'lend');
+
