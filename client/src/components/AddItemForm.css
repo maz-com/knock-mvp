@@ -1,0 +1,61 @@
+.form-container {
+  padding: 20px 0;
+  /* border: solid #013220 1px; */
+  width: 80%;
+}
+
+.add-item-form {
+  padding: 20px;
+}
+
+label {
+  /* display: block; */
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+input[type="text"],
+select,
+textarea[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea[type="text"] {
+  height: 100px;
+  display: inline;
+}
+
+input[type="radio"] {
+  display: inline-block;
+}
+
+form.add-item-form button {
+  display: block;
+  margin: 20px 0;
+}
+
+form.add-item-form button:hover {
+  display: block;
+  margin: 20px 0;
+}
+/* input[type="submit"] {
+  width: 30%;
+  background-color: #4caf50;
+  color: white;
+  display: block;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+} */

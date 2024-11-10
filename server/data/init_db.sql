@@ -23,7 +23,8 @@ CREATE TABLE `categories`(
 CREATE TABLE `users`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `username` VARCHAR(255) NOT NULL,
-    `image` VARCHAR(255) NULL
+    `image` VARCHAR(255) DEFAULT "https://wallpapers.com/images/high/placeholder-profile-icon-20tehfawxt5eihco.png",
+    `email` VARCHAR(255) NOT NULL
 );
 ALTER TABLE
     `items` ADD CONSTRAINT `items_user_id_foreign` FOREIGN KEY(`user_id`) REFERENCES `users`(`id`);
@@ -40,7 +41,7 @@ INSERT INTO `mvp_db`.`categories` (`name`) VALUES ('Audiovisual');
 INSERT INTO `mvp_db`.`categories` (`name`) VALUES ('Games & Hobbies');
 
 /* hard code users */
-INSERT INTO `mvp_db`.`users` (`username`) VALUES ('Neighbour001');
+INSERT INTO `mvp_db`.`users` (`username`, `image`, `email`) VALUES ('Neighbour001', 'https://wallpapers.com/images/high/placeholder-profile-icon-20tehfawxt5eihco.png', 'user@email.com');
 
 /* hard code items */
 INSERT INTO `mvp_db`.`items` (`title`, `description`, `image`, `category_id`, `user_id`, `type`) VALUES ('Drill (cordless)\n', 'I have a Bosch GSB 18V-EC drill available to borrow, please recharge the battery before returning it.', 'https://libraryofthings-images.s3.eu-west-2.amazonaws.com/things/drill-cordless-hands-1080x720.jpg', '2', '1', 'lend');

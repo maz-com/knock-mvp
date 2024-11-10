@@ -17,10 +17,9 @@ h3 {
   min-width: 250px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 4fr 1fr 2fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  position: relative;
 }
 
 .card-img,
@@ -32,61 +31,48 @@ h3 {
 }
 
 .card-img {
-  grid-area: 1 / 1 / 2 / 3;
+  grid-area: 1 / 1 / 4 / 3;
   padding: 0;
-  position: relative;
 }
-
-.card-img .badge {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  font-size: 14px;
-  padding: 8px 8px;
-  border: none;
-  text-align: center;
-}
-
 .card-title {
-  grid-area: 2 / 1 / 3 / 3;
+  grid-area: 4 / 1 / 5 / 3;
   text-align: left;
 }
 .card-description {
-  grid-area: 3 / 1 / 4 / 3;
+  grid-area: 5 / 1 / 7 / 3;
   text-align: left;
 }
-/* .card-available,
+.card-available,
 .card-unavailable {
-  /* grid-area: 7 / 1 / 8 / 2; 
+  grid-area: 7 / 1 / 8 / 2;
   border-right: solid #013220 1px;
   display: table;
-} */
+}
 
-/* .card-available p,
+.card-available p,
 .card-unavailable p {
   text-align: center;
   vertical-align: middle;
   display: table-cell;
-} */
+}
 
-.badge.available {
+.card-available {
   background-color: #c2fbd7;
 }
 
-.badge.unavailable {
-  background-color: #7f7e7e;
-  color: #e6fff6;
+.card-unavailable {
+  background-color: #fbc1c1;
+  color: #490018;
 }
 
 .card-button {
-  grid-area: 4 / 1 / 5 / 3;
+  grid-area: 7 / 2 / 8 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.card-button button,
-.card-button a {
+.card-button button {
   border: none;
   height: 100%;
   width: 100%;

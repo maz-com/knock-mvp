@@ -21,7 +21,7 @@ router.get("/items/category/:category_id", itemsController.getItemsByCategory);
 //create route to get item by type
 router.get("/items/type/:type", itemsController.getItemsByType);
 
-//create route to get item by user_id
+//create route to get items by user_id
 router.get("/items/user/:user_id", itemsController.getItemsByUser);
 
 //create route to create a new item

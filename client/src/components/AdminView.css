@@ -1,0 +1,115 @@
+.admin-view {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: ;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.profile-overview {
+  grid-area: 1 / 1 / 6 / 2;
+  border-right: solid #013220 1px;
+  padding: 40px;
+  text-align: left;
+  min-width: 200px;
+}
+
+.profile-headers {
+  font-size: 24px;
+}
+
+.my-items h3 {
+  display: inline-block;
+}
+
+.profile-overview img {
+  width: 70px;
+  height: 70px;
+  margin: 10px 0;
+}
+
+.profile-overview p {
+  margin: 10px 0;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  font-size: 16px;
+}
+
+.my-items {
+  padding: 40px;
+  text-align: left;
+}
+
+button.add-new-item {
+  background-color: #f2faf2;
+  color: #013220;
+  border-radius: 0px;
+  cursor: pointer;
+  /* display: block; */
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: solid #013220 1px;
+  font-size: 16px;
+  margin: 0 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button.add-new-item:hover {
+  background-color: #c2fbd7;
+  border-radius: 0px;
+  color: #013220;
+  cursor: pointer;
+  /* display: block; */
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  margin: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.my-items-grid {
+  grid-area: 1 / 2 / 6 / 6;
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 100%;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* adjust grid layout for different screen sizes (600px or less) */
+
+@media all and (min-width: 300px) {
+  .my-items-grid {
+    grid-template-columns: 1fr; /* One column */
+  }
+}
+
+@media all and (min-width: 700px) {
+  .my-items-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+  }
+}
+
+@media all and (min-width: 1020px) {
+  .my-items-grid {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns */
+  }
+}
+
+@media all and (min-width: 1340px) {
+  .my-items-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* Four columns */
+  }
+}

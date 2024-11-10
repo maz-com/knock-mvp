@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import Badge from "react-bootstrap/Badge";
+import axios from "axios";
+import CategoryFilter from "./CategoryFilter";
 import "./SideBanner.css";
 
-const SideBanner = () => {
+const SideBanner = ({ updateItemsByCategory }) => {
   //button status unlcicked
   //on click of button 1
   //change button status to clicked
@@ -13,56 +14,43 @@ const SideBanner = () => {
   //fetch all items
   //update setItems
 
-  const [filteredCleaning, setFilteredCleaning] = useState(false);
+  const [categories, setCategories] = useState([]);
 
-  //update state of filteredCleaning to true/false
-  const updateCleaningFilter = () => {
-    /*if (filteredCleaning) {
-        try {
-            //communcate with databasa
-            let response = await axios.get("/api/items/category/:category_id");
-            setItems(response.data);
-          } catch (error) {
-            // handle errors
-            console.error(error);
-          }
-    } */
+  useEffect(() => {
+    //get all categories from db
+    const fetchCategories = async () => {
+      try {
+        //communcate with databasa
+        let response = await axios.get("/api/categories");
+        setCategories(response.data);
+      } catch (error) {
+        // handle errors
+        console.error(error);
+      }
+    };
 
-    //console.log(!filteredCleaning);
-    setFilteredCleaning(!filteredCleaning);
+    fetchCategories();
+  }, []);
+
+  const handleSelectedCategory = (selectedCategory, filterOn) => {
+    updateItemsByCategory(selectedCategory, filterOn);
   };
 
   return (
     <div className="filter-menu-container">
       <h3 className="filter-title">Filter by category</h3>
-
-      <button
-        role="button"
-        onClick={() => updateCleaningFilter()}
-        className={`cleaning-button categories ${
-          filteredCleaning ? "clicked" : null
-        }`}
-      >
-        Cleaning
-      </button>
-      <button className="DIY-button categories" role="button">
-        DIY
-      </button>
-      <button className="gardening-button categories" role="button">
-        Gardening
-      </button>
-      <button className="outdoors-button categories" role="button">
-        Outdoors
-      </button>
-      <button className="cooking-button categories" role="button">
-        Cooking
-      </button>
-      <button className="audiovisual-button categories" role="button">
-        Audiovisual
-      </button>
-      <button className="games-hobbies-button categories" role="button">
-        Games & Hobbies
-      </button>
+      {categories.map((category) => {
+        return (
+          //create filter button for each category
+          <CategoryFilter
+            key={category.id}
+            category={category}
+            updateFilter={(selectedCategory, filterOn) =>
+              handleSelectedCategory(selectedCategory, filterOn)
+            }
+          />
+        );
+      })}
     </div>
   );
 };

@@ -9,10 +9,10 @@ const Banner = () => {
         </div>
       </div>
       <div className="title container">
-        <h1>Community ToolBox</h1>
+        <h1>Knock!</h1>
       </div>
       <div className="rolling-text container">
-        <p>Share & Re-Use</p>
+        {/* <p>Share & Re-Use</p> */}
       </div>
     </>
   );
