@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ItemCard from "./ItemCard";
-import AddItemForm from "./AddItemForm";
-import PreviewItem from "./PreviewItem";
+import AdminCard from "./AdminCard";
 import "./AdminView.css";
 
 const AdminView = ({ addNewItem }) => {
@@ -13,7 +11,7 @@ const AdminView = ({ addNewItem }) => {
     const fetchUser = async () => {
       try {
         //communcate with databasa
-        let response = await axios.get(`/api//users/1`);
+        let response = await axios.get(`/api/users/1`);
         console.log(response.data);
         setCurrentUser(response.data);
       } catch (error) {
@@ -73,14 +71,14 @@ const AdminView = ({ addNewItem }) => {
       </div>
 
       <div className="my-items">
-        <AddItemForm sendNewItem={(input) => sendNewItem(input)} />
-        {/* <h3 className="profile-headers">My Items</h3>
+        {/* <AddItemForm sendNewItem={(input) => sendNewItem(input)} /> */}
+        <h3 className="profile-headers">My Items</h3>
         <button className="add-new-item">Add new item</button>
         <div className="my-items-grid">
           {userItems.map((item) => {
-            return <PreviewItem key={item.id} item={item} />;
+            return <AdminCard key={item.id} item={item} />;
           })}
-        </div> */}
+        </div>
       </div>
     </div>
   );
