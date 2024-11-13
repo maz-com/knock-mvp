@@ -1,4 +1,4 @@
-.categories-btn {
+.btn {
   background-color: #f0fff0;
   color: green;
   border-radius: 10px;
@@ -17,7 +17,7 @@
   touch-action: manipulation;
 }
 
-.categories-btn:hover {
+.btn:hover {
   background-color: #88ffa2;
   border-radius: 20px;
   color: green;
@@ -36,7 +36,7 @@
   touch-action: manipulation;
 }
 
-.categories-btn.clicked {
+.btn.clicked {
   background-color: #88ffa2;
   border-radius: 20px;
   color: green;

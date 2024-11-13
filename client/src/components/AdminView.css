@@ -35,6 +35,42 @@
   text-align: left;
 }
 
+button.add-new-item {
+  background-color: #f0fff0;
+  color: green;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: solid #013220 1px;
+  font-size: 16px;
+  margin: 0 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button.add-new-item:hover {
+  background-color: #88ffa2;
+  color: green;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  margin: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
 .my-items-grid {
   grid-area: 1 / 2 / 6 / 6;
   display: grid;

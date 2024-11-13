@@ -149,7 +149,7 @@ const AddItemForm = ({ sendNewItem }) => {
               <label htmlFor="borrow">
                 I'm looking to borrow this item from a neighbour
               </label>
-              <button className="add-new-item" type="submit" value="Submit">
+              <button className="btn" type="submit" value="Submit">
                 Submit
               </button>
             </form>

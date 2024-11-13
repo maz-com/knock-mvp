@@ -42,6 +42,7 @@ textarea[type="text"] {
   border-radius: 4px;
   box-sizing: border-box;
   background-color: #f0fff0;
+  border: #013220 1px solid;
 }
 
 textarea[type="text"] {
@@ -55,56 +56,6 @@ textarea::placeholder {
 
 input[type="radio"] {
   display: inline-block;
-}
-
-form.add-item-form button {
-  display: block;
-  margin: 20px 0;
-  border-radius: 10px;
-}
-
-form.add-item-form button:hover {
-  display: block;
-  margin: 20px 0;
-  border-radius: 100px;
-}
-
-button.add-new-item {
-  background-color: #f2faf2;
-  color: #013220;
-  border-radius: 0px;
-  cursor: pointer;
-  /* display: block; */
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: solid #013220 1px;
-  font-size: 16px;
-  margin: 0 20px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-button.add-new-item:hover {
-  background-color: #c2fbd7;
-  border-radius: 0px;
-  color: #013220;
-  cursor: pointer;
-  /* display: block; */
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  padding: 7px 20px;
-  margin: 0 20px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
 .profile-overview a {

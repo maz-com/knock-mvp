@@ -22,7 +22,7 @@ const CategoryFilter = ({ category, selectedCategoryId, updateFilter }) => {
         id={category.name}
         name="categories"
         onClick={() => handleFilter(category.id)}
-        className={`categories-btn ${isSelected === true ? "clicked" : null}`}
+        className={`btn ${isSelected === true ? "clicked" : null}`}
       >
         {category.name}
       </button>
