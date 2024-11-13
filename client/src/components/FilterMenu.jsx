@@ -1,20 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CategoryFilter from "./CategoryFilter";
-import "./SideBanner.css";
+import "./FilterMenu.css";
 
-const SideBanner = ({ updateItemsByCategory }) => {
-  //button status unlcicked
-  //on click of button 1
-  //change button status to clicked
-  //if button status is clicked
-  //fetch all items with category of 1 and store in var result
-  //update setItems to result
-  //if button status is unclicked
-  //fetch all items
-  //update setItems
-
+const FilterMenu = ({ updateItemsByCategory }) => {
   const [categories, setCategories] = useState([]);
+  const [selectedCategoryId, setSelectedCategoryId] = useState([]);
 
   useEffect(() => {
     //get all categories from db
@@ -33,6 +24,9 @@ const SideBanner = ({ updateItemsByCategory }) => {
   }, []);
 
   const handleSelectedCategory = (selectedCategory, filterOn) => {
+    // Set the selected category ID, or null if the same button is clicked again
+    setSelectedCategoryId(filterOn ? selectedCategory : null);
+    // Update items based on selected category in parent component
     updateItemsByCategory(selectedCategory, filterOn);
   };
 
@@ -45,6 +39,7 @@ const SideBanner = ({ updateItemsByCategory }) => {
           <CategoryFilter
             key={category.id}
             category={category}
+            selectedCategoryId={selectedCategoryId}
             updateFilter={(selectedCategory, filterOn) =>
               handleSelectedCategory(selectedCategory, filterOn)
             }
@@ -55,4 +50,4 @@ const SideBanner = ({ updateItemsByCategory }) => {
   );
 };
 
-export default SideBanner;
+export default FilterMenu;

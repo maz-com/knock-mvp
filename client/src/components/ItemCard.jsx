@@ -1,42 +1,26 @@
-import { useState, useEffect } from "react";
-//import axios from "axios";
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
-  const [availability, setAvailability] = useState("Available");
-  const [contactBtn, setContactBtn] = useState("");
-
-  useEffect(() => {
-    const updateAvailability = async () => {
-      try {
-        //communcate with databasa
-        if (item.is_available === 1) {
-          setAvailability("Not available");
-          setContactBtn("Enquire");
-        } else {
-          setContactBtn("Request");
-        }
-      } catch (error) {
-        // handle errors
-        console.error(error);
-      }
-    };
-
-    updateAvailability();
-  }, []);
-
   return (
     // <div className="row">
     //   <div className="column">
-    <div className="card">
+    <div className={item.type === "lend" ? "card lend" : "card borrow"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
         <button
           className={
-            item.is_available === 0 ? "badge available" : "badge unavailable"
+            item.type === "borrow"
+              ? "badge borrow"
+              : item.is_available
+              ? "badge available"
+              : "badge unavailable"
           }
         >
-          {availability}
+          {item.type === "borrow"
+            ? "Request"
+            : item.is_available
+            ? "Available"
+            : "Not available"}
         </button>
       </div>
       <div className="card-title">
@@ -45,16 +29,9 @@ const ItemCard = ({ item }) => {
       <div className="card-description">
         <p>{item.description}</p>
       </div>
-      {/* <div
-        className={
-          item.is_available === 0 ? "card-available" : "card-unavailable"
-        }
-      >
-        <p>{availability}</p>
-      </div> */}
       <div className="card-button">
         <a href="mailto:mail@example.com">
-          <button>{contactBtn}</button>
+          <button>{item.is_available ? "Request" : "Enquire"}</button>
         </a>
       </div>
     </div>

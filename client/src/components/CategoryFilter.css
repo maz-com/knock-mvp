@@ -1,7 +1,7 @@
-.categories {
-  background-color: #f2faf2;
+.categories-btn {
+  background-color: #f0fff0;
   color: green;
-  border-radius: 100px;
+  border-radius: 10px;
   cursor: pointer;
   display: block;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
@@ -9,7 +9,7 @@
   margin-block: 8px;
   text-align: center;
   text-decoration: none;
-  transition: all 250ms;
+  transition: all 200ms;
   border: solid green 1px;
   font-size: 16px;
   user-select: none;
@@ -17,9 +17,9 @@
   touch-action: manipulation;
 }
 
-.categories:hover {
-  background-color: #c2fbd7;
-  border-radius: 100px;
+.categories-btn:hover {
+  background-color: #88ffa2;
+  border-radius: 20px;
   color: green;
   cursor: pointer;
   display: block;
@@ -28,18 +28,17 @@
   margin-block: 8px;
   text-align: center;
   text-decoration: none;
-  transition: all 250ms;
+  transition: all 200ms;
   border: 0;
   font-size: 16px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  transform: scale(1.05) rotate(-1deg);
 }
 
-.categories.clicked {
-  background-color: #c2fbd7;
-  border-radius: 100px;
+.categories-btn.clicked {
+  background-color: #88ffa2;
+  border-radius: 20px;
   color: green;
   cursor: pointer;
   display: block;

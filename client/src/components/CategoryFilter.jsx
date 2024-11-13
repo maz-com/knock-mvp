@@ -1,26 +1,28 @@
 import { useState, useEffect } from "react";
 import "./CategoryFilter.css";
 
-const CategoryFilter = ({ category, updateFilter }) => {
+const CategoryFilter = ({ category, selectedCategoryId, updateFilter }) => {
+  //manage category button className to update CSS styling
+  const isSelected = selectedCategoryId === category.id;
+  //store state of category filter (false = off, true = on). This is to be passed up to AdminView for use in updateCategory function
   const [filterOn, setFilterOn] = useState(false);
 
   //update state of category filter to true/false
   const handleFilter = (id) => {
-    //console.log(!filterOn);
-    console.log(`first the filter is on: ${filterOn}`);
     setFilterOn(!filterOn);
-    console.log(`we have now updated it to: ${filterOn}`);
     const categoryId = id;
-    // pass category id up to parent using props.updateFilter() (calls the updateFilter function in SideBanner.jsx)
-    updateFilter(categoryId, filterOn);
+    // call the updateFilter() function in parent with categoryId and !filterOn
+    updateFilter(categoryId, !filterOn);
   };
 
   return (
     <>
       <button
-        role="button"
+        type="radio"
+        id={category.name}
+        name="categories"
         onClick={() => handleFilter(category.id)}
-        className={`cleaning-button categories ${filterOn ? "clicked" : null}`}
+        className={`categories-btn ${isSelected === true ? "clicked" : null}`}
       >
         {category.name}
       </button>

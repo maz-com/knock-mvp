@@ -21,6 +21,15 @@ h3 {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px 0px 10px 0px;
+}
+
+.card.lend {
+  background-color: #f0fff0;
+}
+
+.card.borrow {
+  background-color: #eaebfd;
 }
 
 .card-img,
@@ -42,7 +51,7 @@ h3 {
   top: 5%;
   left: 5%;
   font-size: 14px;
-  padding: 8px 8px;
+  padding: 8px 12px;
   border: none;
   text-align: center;
 }
@@ -68,14 +77,22 @@ h3 {
   vertical-align: middle;
   display: table-cell;
 } */
+.badge {
+  border-radius: 20px;
+}
 
 .badge.available {
-  background-color: #c2fbd7;
+  background-color: #88ffa2;
 }
 
 .badge.unavailable {
-  background-color: #7f7e7e;
-  color: #e6fff6;
+  background-color: #ffffff;
+  color: #013220;
+}
+
+.badge.borrow {
+  background-color: #4666ff;
+  color: white;
 }
 
 .card-button {

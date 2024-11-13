@@ -70,6 +70,7 @@ const getItemsByUser = async (req, res) => {
 
 //controller to create a new item
 const createItem = async (req, res) => {
+  console.log(req.body);
   // grab data from request body
   const {
     title,

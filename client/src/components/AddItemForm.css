@@ -8,6 +8,23 @@
   padding: 20px;
 }
 
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
 label {
   /* display: block; */
   text-align: left;
@@ -21,14 +38,19 @@ textarea[type="text"] {
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 4px;
   box-sizing: border-box;
+  background-color: #f0fff0;
 }
 
 textarea[type="text"] {
   height: 100px;
   display: inline;
+}
+
+textarea::placeholder {
+  font-family: Arial;
 }
 
 input[type="radio"] {
@@ -38,24 +60,54 @@ input[type="radio"] {
 form.add-item-form button {
   display: block;
   margin: 20px 0;
+  border-radius: 10px;
 }
 
 form.add-item-form button:hover {
   display: block;
   margin: 20px 0;
-}
-/* input[type="submit"] {
-  width: 30%;
-  background-color: #4caf50;
-  color: white;
-  display: block;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border-radius: 100px;
 }
 
-input[type="submit"]:hover {
-  background-color: #45a049;
-} */
+button.add-new-item {
+  background-color: #f2faf2;
+  color: #013220;
+  border-radius: 0px;
+  cursor: pointer;
+  /* display: block; */
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: solid #013220 1px;
+  font-size: 16px;
+  margin: 0 20px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button.add-new-item:hover {
+  background-color: #c2fbd7;
+  border-radius: 0px;
+  color: #013220;
+  cursor: pointer;
+  /* display: block; */
+  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  padding: 7px 20px;
+  margin: 0 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.profile-overview a {
+  text-decoration: none;
+  color: #013220;
+}

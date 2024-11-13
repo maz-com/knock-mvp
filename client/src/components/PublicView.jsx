@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SideBanner from "./SideBanner";
+import FilterMenu from "./FilterMenu";
 import ItemCard from "./ItemCard";
-import "./UserView.css";
+import "./PublicView.css";
 
-const UserView = ({ items, updateCategoryView }) => {
+const PublicView = ({ items, updateCategoryView }) => {
+  const noItems = items.length === 0;
   /* const [items, setItems] = useState([]);
 
   //useEffect is used when you want to trigger something when some piece of state changes
@@ -63,22 +64,31 @@ const UserView = ({ items, updateCategoryView }) => {
     <>
       <div className="user-view">
         <div className="side-banner-container">
-          <SideBanner
+          <FilterMenu
             updateItemsByCategory={(selectedCategoryId, filterOn) =>
               updateCategoryFilter(selectedCategoryId, filterOn)
             }
           />
         </div>
         <div className="items-container">
-          <div className="card-container">
-            {items.map((item) => {
-              return <ItemCard key={item.id} item={item} />;
-            })}
+          <div className="all-items">
+            <h3 className="headers">My neighbourhood items</h3>
           </div>
+          {noItems ? (
+            <p className="no-items alert">
+              Sorry, there are no items in this category. Why not add one?
+            </p>
+          ) : (
+            <div className="card-container">
+              {items.map((item) => {
+                return <ItemCard key={item.id} item={item} />;
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default UserView;
+export default PublicView;

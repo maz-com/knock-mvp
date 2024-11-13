@@ -1,36 +1,38 @@
 import { useState, useEffect } from "react";
-//import axios from "axios";
+import axios from "axios";
 import "./AdminCard.css";
 
-const AdminCard = ({ item, setItems }) => {
-  const [availability, setAvailability] = useState("Available");
-
-  useEffect(() => {
-    const showAvailability = async () => {
-      try {
-        //communcate with databasa
-        if (item.is_available === 1) setAvailability("Not available");
-      } catch (error) {
-        // handle errors
-        console.error(error);
-      }
-    };
-
-    showAvailability();
-  }, []);
-
-  const updateAvailability = async () => {
+const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
+  const updateAvailability = async ({ id }) => {
     try {
       //communcate with databasa
       let response = await axios.put(
         `/api/items/${item.id}`,
-        { is_available: !item.isAvailable },
+        { is_available: !item.is_available },
         {
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
+      fetchUserItems();
+      fetchItems();
+      console.log(item.is_available);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDelete = async ({ id }) => {
+    try {
+      // delete task from database
+      const response = await axios.delete(`/api/items/${item.id}`);
+      // upon success, update tasks
+      if (response.status === 200) {
+        fetchUserItems();
+        fetchItems();
+      }
+      // upon failure, show error message
     } catch (error) {
       console.error(error);
     }
@@ -39,15 +41,23 @@ const AdminCard = ({ item, setItems }) => {
   return (
     // <div className="row">
     //   <div className="column">
-    <div className="card">
+    <div className={item.type === "lend" ? "card lend" : "card borrow"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
         <button
           className={
-            item.is_available === 0 ? "badge available" : "badge unavailable"
+            item.type === "borrow"
+              ? "badge borrow"
+              : item.is_available
+              ? "badge available"
+              : "badge unavailable"
           }
         >
-          {availability}
+          {item.type === "borrow"
+            ? "Request"
+            : item.is_available
+            ? "Available"
+            : "Not available"}
         </button>
       </div>
       <div className="card-title">
@@ -56,8 +66,13 @@ const AdminCard = ({ item, setItems }) => {
       <div className="card-description">
         <p>{item.description}</p>
       </div>
-      <div className="card-button button">
-        <button onClick={() => updateAvailability}>Change availability</button>
+      <div className="card-make-available button">
+        <button onClick={() => updateAvailability(item.id)}>
+          {item.is_available ? "Make unavailable" : "Make available"}
+        </button>
+      </div>
+      <div className="card-delete ">
+        <button onClick={() => handleDelete(item.id)}>DELETE</button>
       </div>
     </div>
     //</div>

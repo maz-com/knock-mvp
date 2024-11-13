@@ -4,8 +4,17 @@
 
 @font-face {
   font-family: "Righteous";
-  /* download font from https://fonts.google.com/ */
   src: url("./resources/Righteous-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Founders Grotesk Regular";
+  src: url("./resources/founders-grotesk-regular.woff2");
+}
+
+@font-face {
+  font-family: "Founders Grotesk Medium";
+  src: url("./resources/founders-grotesk-medium.woff2");
 }
 
 #root {
@@ -16,14 +25,98 @@
 }
 
 body {
-  background-color: #f8fff8;
+  /* background-color: #f8fff8; */
+  background-color: #ffffff;
   color: #013220;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif,
-    monospace;
-  font-size: 16px;
+  font-family: "Arial";
+  font-size: 14px;
 }
 
 img {
   object-fit: contain;
   height: 100%;
 }
+
+.container {
+  border-bottom: solid #013220 1px;
+  margin: 0;
+  background-color: #c9ffc9;
+}
+
+header {
+  position: relative;
+  width: 100%;
+}
+
+.navbar {
+  padding: 1em 0;
+  /* background-color: #e6f9e6; */
+  background-color: white;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 10%;
+  left: 1.5%;
+  width: 97%;
+  border-radius: 10px;
+  border: #013220 solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.237) 0px 0px 10px 2px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #013220;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbutton {
+  /* text-align: right; */
+  margin-right: 2rem;
+  margin-left: 2rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS";
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.title {
+  padding: 8em 0 5em 0;
+}
+
+.title a {
+  text-decoration: none;
+  color: #013220;
+}
+
+h1 {
+  font-family: "Righteous", sans-serif;
+  font-size: 70px;
+}
+
+/* .rolling-text {
+  padding-block: 8px;
+}
+
+.rolling-text {
+  padding-block: 8px;
+  overflow: hidden;
+
+  display: inline-flex;
+  white-space: nowrap;
+} 
+
+.rolling-text p {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  animation: scroll 20s linear infinite;
+} */
+
+/* @keyframes scroll {
+  to {
+    transform: translateX(-100%);
+  }
+} */

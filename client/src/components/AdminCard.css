@@ -17,7 +17,7 @@ h3 {
   min-width: 250px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: 3fr 1fr 2fr 0.75fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
@@ -31,48 +31,28 @@ h3 {
 }
 
 .card-img {
-  grid-area: 1 / 1 / 4 / 3;
+  grid-area: 1 / 1 / 2 / 3;
   padding: 0;
 }
+
 .card-title {
-  grid-area: 4 / 1 / 5 / 3;
+  grid-area: 2 / 1 / 3 / 3;
   text-align: left;
 }
 .card-description {
-  grid-area: 5 / 1 / 7 / 3;
+  grid-area: 3 / 1 / 4 / 3;
   text-align: left;
 }
-.card-available,
-.card-unavailable {
-  grid-area: 7 / 1 / 8 / 2;
-  border-right: solid #013220 1px;
-  display: table;
-}
 
-.card-available p,
-.card-unavailable p {
-  text-align: center;
-  vertical-align: middle;
-  display: table-cell;
-}
-
-.card-available {
-  background-color: #c2fbd7;
-}
-
-.card-unavailable {
-  background-color: #fbc1c1;
-  color: #490018;
-}
-
-.card-button {
-  grid-area: 7 / 1 / 8 / 2;
+.card-make-available {
+  grid-area: 4 / 1 / 5 / 2;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: solid #013220 1px;
 }
 
-.card-button button {
+.card-make-available button {
   border: none;
   height: 100%;
   width: 100%;
@@ -82,7 +62,29 @@ h3 {
   font-size: 16px;
 }
 
-.card-button button:hover {
+.card-make-available button:hover {
   background-color: #cee0ce;
+  cursor: pointer;
+}
+
+.card-delete {
+  grid-area: 4 / 2 / 5 / 3;
+  display: table-cell;
+}
+
+.card-delete button {
+  border: none;
+  height: 100%;
+  width: 100%;
+  background: none;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif,
+    monospace;
+  font-size: 16px;
+  color: #a00000;
+  font-weight: 600;
+}
+
+.card-delete button:hover {
+  background-color: #ff012757;
   cursor: pointer;
 }
