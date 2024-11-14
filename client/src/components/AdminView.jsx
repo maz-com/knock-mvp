@@ -76,7 +76,7 @@ const AdminView = ({ addNewItem, fetchItems }) => {
       </div>
 
       <div className="my-items">
-        <h3 className="profile-headers">My Items</h3>
+        <h3 className="headers">My Items</h3>
         <Link to="/admin/add-item">
           <button className="add-new-item">Add new item</button>
         </Link>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import "./AddItemForm.css";
@@ -34,6 +34,8 @@ const AddItemForm = ({ sendNewItem }) => {
 
   // new item object: where the input values from the form are stored
   const [input, setInput] = useState(emptyForm);
+  //call the useNavigate hook to get the navigate function
+  const navigate = useNavigate();
 
   // when this function is called,
   const handleInputChange = (event) => {
@@ -54,11 +56,18 @@ const AddItemForm = ({ sendNewItem }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!title) {
+      console.log("error");
+    }
     // pass data back up to parent using props.addProject() (calls the addProject function in App.jsx)
     sendNewItem(input);
 
     // clear form after submitting
     setInput(emptyForm);
+
+    //navigate back to AdminView
+    navigate("/admin");
   };
 
   return (
@@ -73,7 +82,7 @@ const AddItemForm = ({ sendNewItem }) => {
         </div>
 
         <div className="my-items">
-          <h3 className="profile-headers">Add new item</h3>
+          <h3>Add new item</h3>
 
           <div className="form-container">
             <form className="add-item-form" onSubmit={handleSubmit}>
@@ -149,7 +158,7 @@ const AddItemForm = ({ sendNewItem }) => {
               <label htmlFor="borrow">
                 I'm looking to borrow this item from a neighbour
               </label>
-              <button className="btn" type="submit" value="Submit">
+              <button className="submit-btn" type="submit" value="Submit">
                 Submit
               </button>
             </form>

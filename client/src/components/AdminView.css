@@ -40,7 +40,7 @@ button.add-new-item {
   color: green;
   border-radius: 10px;
   cursor: pointer;
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 7px 20px;
   text-align: center;
   text-decoration: none;
@@ -58,7 +58,7 @@ button.add-new-item:hover {
   color: green;
   border-radius: 20px;
   cursor: pointer;
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   padding: 7px 20px;
   margin: 0 20px;
   text-align: center;

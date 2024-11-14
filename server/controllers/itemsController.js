@@ -130,7 +130,7 @@ const deleteItem = async (req, res) => {
   res.status(200).send({ message: `Successfully deleted item with id: ${id}` });
 };
 
-// Add user
+// controller to add user
 const getUser = async (req, res) => {
   //get id from request object
   const { id } = req.params;
@@ -141,6 +141,39 @@ const getUser = async (req, res) => {
   //return result
   res.status(200).send(result);
 };
+
+// controller to get user data for an item by item id
+const getItemUserData = async (req, res) => {
+  //get id from request object
+  const { id } = req.params;
+
+  //make a database query to search for an item by id
+  const [result] = await pool.query(
+    `SELECT users.username FROM items LEFT JOIN users ON items.user_id = users.id WHERE items.id = ?`,
+    [id]
+  );
+
+  // Check if the item was found
+  if (result.length === 0) {
+    return res.status(404).json({ message: "Item not found" });
+  }
+
+  // Return the result
+  res.status(200).send(result[0]); // Return only the first item, as `id` should be unique
+};
+
+/* const getAllItemsData = async (req, res) => {
+  //make a database query to search for an item by id
+  const [result] = await pool.query(
+    `SELECT items.*, users.username 
+       FROM items 
+       LEFT JOIN users ON items.user_id = users.id`
+  );
+
+  // Return the results as an array of items
+  console.log(result);
+  res.status(200).json(result);
+}; */
 
 module.exports = {
   getItems,
@@ -153,4 +186,5 @@ module.exports = {
   updateAvailability,
   deleteItem,
   getUser,
+  getItemUserData,
 };

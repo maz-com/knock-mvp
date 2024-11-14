@@ -66,9 +66,16 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
       <div className="card-description">
         <p>{item.description}</p>
       </div>
-      <div className="card-make-available button">
-        <button onClick={() => updateAvailability(item.id)}>
-          {item.is_available ? "Make unavailable" : "Make available"}
+      <div className="card-make-available">
+        <button
+          onClick={() => updateAvailability(item.id)}
+          className={item.type === "borrow" ? "no-button" : null}
+        >
+          {item.type === "borrow"
+            ? null
+            : item.is_available
+            ? "Make unavailable"
+            : "Make available"}
         </button>
       </div>
       <div className="card-delete ">

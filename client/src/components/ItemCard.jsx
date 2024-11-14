@@ -1,6 +1,26 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./ItemCard.css";
 
 const ItemCard = ({ item }) => {
+  const [ownerData, setOwnerData] = useState([]);
+
+  //fetch owner username by item id
+  useEffect(() => {
+    const fetchOwnerData = async ({ id }) => {
+      try {
+        //communcate with databasa
+        let response = await axios.get(`/api/items/data/1`);
+        console.log(response);
+        setOwnerData(response.data);
+      } catch (error) {
+        // handle errors
+        console.error(error);
+      }
+    };
+    fetchOwnerData(item.id);
+  }, [item]);
+
   return (
     // <div className="row">
     //   <div className="column">
@@ -28,10 +48,23 @@ const ItemCard = ({ item }) => {
       </div>
       <div className="card-description">
         <p>{item.description}</p>
+        <p>
+          by <b>{ownerData.username}</b>
+        </p>
       </div>
-      <div className="card-button">
+      <div
+        className={
+          item.type === "lend" ? "card-button lend" : "card-button borrow"
+        }
+      >
         <a href="mailto:mail@example.com">
-          <button>{item.is_available ? "Request" : "Enquire"}</button>
+          <button>
+            {item.type === "borrow"
+              ? "REPLY"
+              : item.is_available
+              ? "BORROW"
+              : "ENQUIRE"}
+          </button>
         </a>
       </div>
     </div>

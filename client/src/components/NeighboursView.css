@@ -22,7 +22,8 @@
   padding: 40px;
 }
 
-.all-items h3 {
+.all-items h3,
+.my-items h3 {
   text-align: left;
 }
 

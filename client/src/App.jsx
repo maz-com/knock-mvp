@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import axios from "axios";
 //import Banner from "./components/Banner";
-import PublicView from "./components/PublicView";
+import NeighboursView from "./components/NeighboursView";
 import AdminView from "./components/AdminView";
 import AddItemForm from "./components/AddItemForm";
 import Images from "./components/Images";
+import Dashboard from "./components/Dashboard";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -65,8 +66,8 @@ function App() {
 
   const handleNewItem = async (input) => {
     try {
-      // communicate with db: add task
-      // axios.method(url, data(opt), options(say type of data))
+      // communicate with db: post new item
+      //if posting an item request, hard code 'request' image to the card and pull other data from input
       if (input.type === "borrow") {
         let response = await axios.post(
           "/api/items",
@@ -86,6 +87,7 @@ function App() {
             },
           }
         );
+        //otherwise, if posting a regular item, pull all data from input
       } else {
         let response = await axios.post(
           "/api/items",
@@ -106,14 +108,15 @@ function App() {
           }
         );
       }
-      // Continue fetch request here
-      // get the new task object from db response
+      //get the new item object from db response
       const newItem = response.data;
       // add it to your state
       setItems((state) => [...state, newItem]);
     } catch (error) {
       console.error(error);
     }
+
+    fetchItems();
   };
 
   return (
@@ -136,10 +139,11 @@ function App() {
       </header>
       <main>
         <Routes>
+          <Route path="/home" element={<Dashboard />} />
           <Route
             path="/"
             element={
-              <PublicView
+              <NeighboursView
                 items={items}
                 updateCategoryView={(selectedCategoryId, filterOn) =>
                   updateCategory(selectedCategoryId, filterOn)

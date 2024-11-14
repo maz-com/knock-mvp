@@ -36,4 +36,9 @@ router.delete("/items/:id", itemsController.deleteItem);
 //create route to get user by id
 router.get("/users/:id", itemsController.getUser);
 
+//create route to get owner username for an item by item id
+router.get("/items/data/:id", itemsController.getItemUserData);
+
+//router.get("/items/data/", itemsController.getAllItemsData);
+
 module.exports = router;

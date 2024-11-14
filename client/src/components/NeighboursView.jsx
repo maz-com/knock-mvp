@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import FilterMenu from "./FilterMenu";
 import ItemCard from "./ItemCard";
-import "./PublicView.css";
+import "./NeighboursView.css";
 
-const PublicView = ({ items, updateCategoryView }) => {
+const NeighboursView = ({ items, updateCategoryView }) => {
   const noItems = items.length === 0;
+
   /* const [items, setItems] = useState([]);
 
   //useEffect is used when you want to trigger something when some piece of state changes
@@ -91,4 +92,4 @@ const PublicView = ({ items, updateCategoryView }) => {
   );
 };
 
-export default PublicView;
+export default NeighboursView;

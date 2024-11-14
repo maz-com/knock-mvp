@@ -67,6 +67,16 @@ h3 {
   cursor: pointer;
 }
 
+.no-button {
+  border: none;
+  background-color: none;
+}
+
+.card-make-available button.no-button:hover {
+  background-color: #eaebfd;
+  cursor: default;
+}
+
 .card-delete {
   grid-area: 4 / 2 / 5 / 3;
   display: table-cell;

@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CategoryFilter from "./CategoryFilter";
+//import TypeFilter from "./TypeFilter";
 import "./FilterMenu.css";
 
 const FilterMenu = ({ updateItemsByCategory }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState([]);
+  //const [types, setTypes] = useState(["borrow", "lend"]);
 
   useEffect(() => {
     //get all categories from db
@@ -46,6 +48,17 @@ const FilterMenu = ({ updateItemsByCategory }) => {
           />
         );
       })}
+      {/* <h3 className="filter-title">Filter by type</h3>
+      {types.map((type) => {
+        return (
+          //create filter button for each category
+          <TypeFilter
+            key={type}
+            type={type}
+            updateFilter={(selectedCategory, filterOn) =>
+              handleSelectedCategory(selectedCategory, filterOn)
+            } 
+      /> ); })} */}
     </div>
   );
 };
