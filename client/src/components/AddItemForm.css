@@ -6,6 +6,7 @@
 
 form {
   font-size: 16px;
+  width: 400px;
 }
 
 .add-item-form {
@@ -80,7 +81,7 @@ input[type="radio"] {
   text-decoration: none;
   transition: all 250ms;
   border: solid #013220 1px;
-  font-size: 20px;
+  font-size: 18px;
   margin: 1rem 0;
   user-select: none;
   -webkit-user-select: none;
@@ -95,12 +96,12 @@ input[type="radio"] {
   cursor: pointer;
   font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
   padding: 7px 20px;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
   text-align: center;
   text-decoration: none;
   transition: all 250ms;
   border: 0;
-  font-size: 20px;
+  font-size: 18px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
