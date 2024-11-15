@@ -28,7 +28,7 @@ h3 {
   background-color: #f0fff0;
 }
 
-.card.borrow {
+.card.request {
   background-color: #eaebfd;
 }
 
@@ -99,7 +99,7 @@ padding: 2px 0 4px 0;
   color: #013220;
 }
 
-.badge.borrow {
+.badge.request {
   background-color: #4666ff;
   color: white;
 }
@@ -133,12 +133,12 @@ padding: 2px 0 4px 0;
   cursor: pointer; */
 }
 
-.card-button.borrow button:hover {
+.card-button.request button:hover {
   background-color: #d0d0e1;
   cursor: pointer;
 }
 
-.card-button.borrow button:hover {
+.card-button.request button:hover {
   background-color: #c4c5d7;
   cursor: pointer;
 }

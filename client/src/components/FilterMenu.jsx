@@ -7,7 +7,7 @@ import "./FilterMenu.css";
 const FilterMenu = ({ updateItemsByCategory }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState([]);
-  //const [types, setTypes] = useState(["borrow", "lend"]);
+  //const [types, setTypes] = useState(["request", "lend"]);
 
   useEffect(() => {
     //get all categories from db

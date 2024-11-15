@@ -7,10 +7,10 @@ const ItemCard = ({ item }) => {
 
   //fetch owner username by item id
   useEffect(() => {
-    const fetchOwnerData = async ({ id }) => {
+    const fetchOwnerData = async (id) => {
       try {
         //communcate with databasa
-        let response = await axios.get(`/api/items/data/1`);
+        let response = await axios.get(`/api/items/data/${id}`);
         console.log(response);
         setOwnerData(response.data);
       } catch (error) {
@@ -24,19 +24,19 @@ const ItemCard = ({ item }) => {
   return (
     // <div className="row">
     //   <div className="column">
-    <div className={item.type === "lend" ? "card lend" : "card borrow"}>
+    <div className={item.type === "lend" ? "card lend" : "card request"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
         <button
           className={
-            item.type === "borrow"
-              ? "badge borrow"
+            item.type === "request"
+              ? "badge request"
               : item.is_available
               ? "badge available"
               : "badge unavailable"
           }
         >
-          {item.type === "borrow"
+          {item.type === "request"
             ? "Request"
             : item.is_available
             ? "Available"
@@ -54,12 +54,12 @@ const ItemCard = ({ item }) => {
       </div>
       <div
         className={
-          item.type === "lend" ? "card-button lend" : "card-button borrow"
+          item.type === "lend" ? "card-button lend" : "card-button request"
         }
       >
         <a href="mailto:mail@example.com">
           <button>
-            {item.type === "borrow"
+            {item.type === "request"
               ? "REPLY"
               : item.is_available
               ? "BORROW"

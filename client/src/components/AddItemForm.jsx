@@ -51,16 +51,13 @@ const AddItemForm = ({ sendNewItem }) => {
       ...state,
       [name]: value,
     }));
-    console.log(input);
+    //console.log(input);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title) {
-      console.log("error");
-    }
-    // pass data back up to parent using props.addProject() (calls the addProject function in App.jsx)
+    // pass data back up to parent
     sendNewItem(input);
 
     // clear form after submitting
@@ -76,7 +73,7 @@ const AddItemForm = ({ sendNewItem }) => {
         <div className="profile-overview">
           <Link to="/admin">
             <h3 className="headers">
-              <i className="arrow left"></i> Back to My Profile
+              <i className="arrow left"></i> back to My Profile
             </h3>
           </Link>
         </div>
@@ -105,7 +102,7 @@ const AddItemForm = ({ sendNewItem }) => {
                 />
               </label>
               <label htmlFor="image-url">
-                Image URL
+                Image URL (mandatory if posting an item to lend)
                 <input
                   type="text"
                   id="form-image-url"
@@ -149,13 +146,13 @@ const AddItemForm = ({ sendNewItem }) => {
               <br />
               <input
                 type="radio"
-                id="borrow"
+                id="request"
                 name="type"
-                value="borrow"
+                value="request"
                 onChange={(e) => handleInputChange(e)}
               />
                {" "}
-              <label htmlFor="borrow">
+              <label htmlFor="request">
                 I'm looking to borrow this item from a neighbour
               </label>
               <button className="submit-btn" type="submit" value="Submit">

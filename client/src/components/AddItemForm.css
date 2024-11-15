@@ -53,6 +53,7 @@ textarea[type="text"] {
 textarea[type="text"] {
   height: 100px;
   display: inline;
+  font-family: Arial;
 }
 
 textarea::placeholder {

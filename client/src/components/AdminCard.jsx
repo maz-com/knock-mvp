@@ -41,19 +41,19 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
   return (
     // <div className="row">
     //   <div className="column">
-    <div className={item.type === "lend" ? "card lend" : "card borrow"}>
+    <div className={item.type === "lend" ? "card lend" : "card request"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
         <button
           className={
-            item.type === "borrow"
-              ? "badge borrow"
+            item.type === "request"
+              ? "badge request"
               : item.is_available
               ? "badge available"
               : "badge unavailable"
           }
         >
-          {item.type === "borrow"
+          {item.type === "request"
             ? "Request"
             : item.is_available
             ? "Available"
@@ -69,9 +69,9 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
       <div className="card-make-available">
         <button
           onClick={() => updateAvailability(item.id)}
-          className={item.type === "borrow" ? "no-button" : null}
+          className={item.type === "request" ? "no-button" : null}
         >
-          {item.type === "borrow"
+          {item.type === "request"
             ? null
             : item.is_available
             ? "Make unavailable"

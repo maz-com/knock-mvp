@@ -54,6 +54,9 @@ const AdminView = ({ addNewItem, fetchItems }) => {
               <b>Username:</b> {currentUser[0].username}
             </p>
             <p>
+              <b>Name:</b> {currentUser[0].name}
+            </p>
+            <p>
               <b>Items listed: </b>
               {userItems.length}
             </p>
@@ -63,7 +66,7 @@ const AdminView = ({ addNewItem, fetchItems }) => {
             </p>
             <p>
               <b>Requested items:</b>{" "}
-              {userItems.filter((item) => item.type === "borrow").length}
+              {userItems.filter((item) => item.type === "request").length}
             </p>
             <p>
               <b>Items currently lent out:</b>{" "}

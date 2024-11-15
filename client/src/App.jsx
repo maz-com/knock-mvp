@@ -29,16 +29,16 @@ function App() {
   //useEffect is used when you want to trigger something when some piece of state changes
   useEffect(() => {
     /* const fetchItems = async () => {
-        try {
-          //communcate with databasa
-          let response = await axios.get("/api/items");
-          console.log(response.data);
-          setItems(response.data);
-        } catch (error) {
-          // handle errors
-          console.error(error);
-        }
-      }; */
+          try {
+            //communcate with databasa
+            let response = await axios.get("/api/items");
+            console.log(response.data);
+            setItems(response.data);
+          } catch (error) {
+            // handle errors
+            console.error(error);
+          }
+        }; */
 
     fetchItems();
   }, []);
@@ -66,10 +66,11 @@ function App() {
 
   const handleNewItem = async (input) => {
     try {
+      let response;
       // communicate with db: post new item
       //if posting an item request, hard code 'request' image to the card and pull other data from input
-      if (input.type === "borrow") {
-        let response = await axios.post(
+      if (input.type === "request") {
+        response = await axios.post(
           "/api/items",
           {
             title: input.title,
@@ -89,7 +90,7 @@ function App() {
         );
         //otherwise, if posting a regular item, pull all data from input
       } else {
-        let response = await axios.post(
+        response = await axios.post(
           "/api/items",
           {
             title: input.title,
