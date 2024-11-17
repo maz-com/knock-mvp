@@ -1,17 +1,19 @@
+/* This component returns the category filter button */
+
 import { useState } from "react";
 import "./CategoryFilter.css";
 
 const CategoryFilter = ({ category, selectedCategoryId, updateFilter }) => {
-  //manage category button className to update CSS styling
+  //const isSelected returns true if selectedCategoryId (received from FilterMenu) is strictly equal to cateogry.id (also received from FilterMenu). This is used below to change the button className depending on whether the filter has been selected or not. The className determines the styling of the button in CSS
   const isSelected = selectedCategoryId === category.id;
-  //store state of category filter (false = off, true = on). This is to be passed up to AdminView for use in updateCategory function
+  //store state of category filter (false = off, true = on)
   const [filterOn, setFilterOn] = useState(false);
 
-  //update state of category filter to true/false
+  //on click of the button, update state of category filter to true/false
   const handleFilter = (id) => {
     setFilterOn(!filterOn);
     const categoryId = id;
-    // call the updateFilter() function in parent with categoryId and !filterOn
+    // call the updateFilter() function in FilterMenu with categoryId and !filterOn
     updateFilter(categoryId, !filterOn);
   };
 

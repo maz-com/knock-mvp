@@ -1,19 +1,21 @@
+/* This component returns the 'My Profile' page */
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import AdminCard from "./AdminCard";
 import "./AdminView.css";
 
-const AdminView = ({ addNewItem, fetchItems }) => {
-  const [userItems, setUserItems] = useState([]);
+const AdminView = ({ fetchItems, fetchUserItems, userItems }) => {
+  //variable with empty array to store data about current user
   const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
+    //function to fetch data about current user. At the moment this is hard coded to fetch user with id 1
     const fetchUser = async () => {
       try {
         //communcate with databasa
         let response = await axios.get(`/api/users/1`);
-        console.log(response.data);
         setCurrentUser(response.data);
       } catch (error) {
         // handle errors
@@ -22,25 +24,9 @@ const AdminView = ({ addNewItem, fetchItems }) => {
     };
 
     fetchUser();
+    //call fetchUserItems to display items for current user
     fetchUserItems();
   }, []);
-
-  //fetch items by user
-  const fetchUserItems = async () => {
-    try {
-      //communcate with databasa
-      let response = await axios.get(`/api/items/user/1`);
-      console.log(response.data);
-      setUserItems(response.data);
-    } catch (error) {
-      // handle errors
-      console.error(error);
-    }
-  };
-
-  /*  const sendNewItem = (input) => {
-    addNewItem(input);
-  }; */
 
   return (
     <div className="admin-view">
@@ -57,7 +43,7 @@ const AdminView = ({ addNewItem, fetchItems }) => {
               <b>Name:</b> {currentUser[0].name}
             </p>
             <p>
-              <b>Items listed: </b>
+              <b>Total items listed: </b>
               {userItems.length}
             </p>
             <p>
@@ -65,7 +51,7 @@ const AdminView = ({ addNewItem, fetchItems }) => {
               {userItems.filter((item) => item.type === "lend").length}
             </p>
             <p>
-              <b>Requested items:</b>{" "}
+              <b>Items I'm requesting:</b>{" "}
               {userItems.filter((item) => item.type === "request").length}
             </p>
             <p>

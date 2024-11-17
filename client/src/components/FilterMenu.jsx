@@ -1,14 +1,17 @@
+/* This component return the sidebar menu that contains filter buttons */
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CategoryFilter from "./CategoryFilter";
-//import TypeFilter from "./TypeFilter";
 import "./FilterMenu.css";
 
 const FilterMenu = ({ updateItemsByCategory }) => {
+  //empty array variable to store categories data from the database
   const [categories, setCategories] = useState([]);
+  //empty array variable to store data about selected cateogry button
   const [selectedCategoryId, setSelectedCategoryId] = useState([]);
-  //const [types, setTypes] = useState(["request", "lend"]);
 
+  //function to fetch data about all categories from 'categories' table in database
   useEffect(() => {
     //get all categories from db
     const fetchCategories = async () => {
@@ -25,10 +28,11 @@ const FilterMenu = ({ updateItemsByCategory }) => {
     fetchCategories();
   }, []);
 
+  //function to handle cateogry selected in CategoryFilter, with selectedCategory and filerOn (received from CategoryFilter)
   const handleSelectedCategory = (selectedCategory, filterOn) => {
-    // Set the selected category ID, or null if the same button is clicked again
+    //Set the selected category ID, or null if the same button is clicked again
     setSelectedCategoryId(filterOn ? selectedCategory : null);
-    // Update items based on selected category in parent component
+    //Pass data to parent (NeighboursView) to update which items are displayed
     updateItemsByCategory(selectedCategory, filterOn);
   };
 
@@ -48,17 +52,6 @@ const FilterMenu = ({ updateItemsByCategory }) => {
           />
         );
       })}
-      {/* <h3 className="filter-title">Filter by type</h3>
-      {types.map((type) => {
-        return (
-          //create filter button for each category
-          <TypeFilter
-            key={type}
-            type={type}
-            updateFilter={(selectedCategory, filterOn) =>
-              handleSelectedCategory(selectedCategory, filterOn)
-            } 
-      /> ); })} */}
     </div>
   );
 };

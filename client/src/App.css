@@ -7,21 +7,6 @@
   src: url("./resources/Righteous-Regular.ttf");
 }
 
-@font-face {
-  font-family: "Quicksand Regular";
-  src: url("./resources/Quicksand-Regular.ttf");
-}
-
-@font-face {
-  font-family: "Quicksand Bold";
-  src: url("./resources/Quicksand-Bold.ttf");
-}
-
-@font-face {
-  font-family: "Quicksand SemiBold";
-  src: "./resources/Quicksand-SemiBold.ttf";
-}
-
 #root {
   /* max-width: 1280px; */
   /* margin: 0 auto; */
@@ -99,30 +84,3 @@ h1 {
   font-family: "Righteous", sans-serif;
   font-size: 70px;
 }
-
-/* .rolling-text {
-  padding-block: 8px;
-}
-
-.rolling-text {
-  padding-block: 8px;
-  overflow: hidden;
-
-  display: inline-flex;
-  white-space: nowrap;
-} 
-
-.rolling-text p {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  animation: scroll 20s linear infinite;
-} */
-
-/* @keyframes scroll {
-  to {
-    transform: translateX(-100%);
-  }
-} */

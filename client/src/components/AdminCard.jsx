@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+/* This component returns the item cards as displayed in 'My Profile'/AdminvView */
+
 import axios from "axios";
 import "./AdminCard.css";
 
 const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
+  //function to update 'is_available' value in 'items' database table
   const updateAvailability = async ({ id }) => {
     try {
       //communcate with databasa
@@ -15,14 +17,16 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
           },
         }
       );
-      fetchUserItems();
+      //call fetchUserItems to update items displayed in main page/NeighboursView
       fetchItems();
-      console.log(item.is_available);
+      //call fetchUserItems to update items displayed in My Profile page/AdminView
+      fetchUserItems();
     } catch (error) {
       console.error(error);
     }
   };
 
+  //function to handle item delete button
   const handleDelete = async ({ id }) => {
     try {
       // delete task from database
@@ -39,8 +43,6 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
   };
 
   return (
-    // <div className="row">
-    //   <div className="column">
     <div className={item.type === "lend" ? "card lend" : "card request"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
@@ -74,16 +76,14 @@ const AdminCard = ({ item, fetchUserItems, fetchItems }) => {
           {item.type === "request"
             ? null
             : item.is_available
-            ? "Make unavailable"
-            : "Make available"}
+            ? "MAKE AVAILABLE"
+            : "MAKE UNAVAILABLE"}
         </button>
       </div>
       <div className="card-delete ">
         <button onClick={() => handleDelete(item.id)}>DELETE</button>
       </div>
     </div>
-    //</div>
-    // </div>
   );
 };
 

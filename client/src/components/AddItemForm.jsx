@@ -1,19 +1,21 @@
+/* This component returns the form to add a new item */
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import axios from "axios";
 import "./AddItemForm.css";
 
 const AddItemForm = ({ sendNewItem }) => {
+  //empty array to store categories data for dropdown list
   const [categories, setCategories] = useState([]);
 
+  //fetch categories from categories db and add to 'categories' array
   useEffect(() => {
     //get all categories from db
     const fetchCategories = async () => {
       try {
         //communcate with databasa
         let response = await axios.get("/api/categories");
-        console.log(response.data);
         setCategories(response.data);
       } catch (error) {
         // handle errors
@@ -24,7 +26,7 @@ const AddItemForm = ({ sendNewItem }) => {
     fetchCategories();
   }, []);
 
-  //create reusable empty form object
+  //create reusable empty form object. Hard code "lend" as default type.
   const emptyForm = {
     title: "",
     description: "",
@@ -32,32 +34,33 @@ const AddItemForm = ({ sendNewItem }) => {
     type: "lend",
   };
 
-  // new item object: where the input values from the form are stored
+  // input object: where the input values from the form are stored
   const [input, setInput] = useState(emptyForm);
-  //call the useNavigate hook to get the navigate function
+  //call the useNavigate React hook to get the navigate function
   const navigate = useNavigate();
 
-  // when this function is called,
+  //function to handle input change in the form
   const handleInputChange = (event) => {
-    //what is being entered (fom the event object which is created by default when an event is registered)
+    //store what is being entered in the form in a variable called value
     const value = event.target.value;
-    //where it's happening (also from the event object)
+    //store what input it's being entered to in a variable called name
     const name = event.target.name;
 
-    //update the state of the project object
+    //update the state of the input object
     //pass and copy everything in the original state of the object (as we declared above)
     //update the key and value that match the input name and value where the event was triggered.
     setInput((state) => ({
       ...state,
       [name]: value,
     }));
-    //console.log(input);
   };
 
+  //function to handle form submit
   const handleSubmit = (e) => {
+    //clear default settings
     e.preventDefault();
 
-    // pass data back up to parent
+    // pass data back up to parent (App.jsx)
     sendNewItem(input);
 
     // clear form after submitting
@@ -129,7 +132,6 @@ const AddItemForm = ({ sendNewItem }) => {
                   );
                 })}
               </select>
-              {/* add onChange functionality */}
               <input
                 type="radio"
                 id="lend"

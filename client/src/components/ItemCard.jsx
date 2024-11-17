@@ -1,3 +1,5 @@
+/* This component returns the item cards as displayed in the main page/NeighboursView */
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./ItemCard.css";
@@ -5,13 +7,12 @@ import "./ItemCard.css";
 const ItemCard = ({ item }) => {
   const [ownerData, setOwnerData] = useState([]);
 
-  //fetch owner username by item id
+  //fetch data about user/the owner of the items by item id
   useEffect(() => {
     const fetchOwnerData = async (id) => {
       try {
         //communcate with databasa
         let response = await axios.get(`/api/items/data/${id}`);
-        console.log(response);
         setOwnerData(response.data);
       } catch (error) {
         // handle errors
@@ -22,8 +23,6 @@ const ItemCard = ({ item }) => {
   }, [item]);
 
   return (
-    // <div className="row">
-    //   <div className="column">
     <div className={item.type === "lend" ? "card lend" : "card request"}>
       <div className="card-img">
         <img src={item.image} alt={item.title} />
@@ -68,8 +67,6 @@ const ItemCard = ({ item }) => {
         </a>
       </div>
     </div>
-    //</div>
-    // </div>
   );
 };
 

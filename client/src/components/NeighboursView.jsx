@@ -1,62 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+/* This component returns the main page with all items and filter menu */
+
 import FilterMenu from "./FilterMenu";
 import ItemCard from "./ItemCard";
 import "./NeighboursView.css";
 
 const NeighboursView = ({ items, updateCategoryView }) => {
+  //noItems returns true if there are no items in the 'items' array in App.jsx
   const noItems = items.length === 0;
 
-  /* const [items, setItems] = useState([]);
-
-  //useEffect is used when you want to trigger something when some piece of state changes
-  useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        //communcate with databasa
-        let response = await axios.get("/api/items");
-        console.log(response.data);
-        setItems(response.data);
-      } catch (error) {
-        // handle errors
-        console.error(error);
-      }
-    };
-
-    fetchItems();
-  }, []); */
-
-  /* const updateCategoryFilter = async (selectedCategoryId, filterOn) => {
-    console.log(`filter is on: ${filterOn}`);
-    if (filterOn) {
-      try {
-        // update task from database
-        const response = await axios.get(
-          `/api/items/category/${selectedCategoryId}`
-        );
-        //console.log(response.data);
-        setItems(response.data);
-      } catch (error) {
-        // upon failure, show error message
-        console.error(error);
-      }
-    } else {
-      const fetchItems = async () => {
-        try {
-          //communcate with databasa
-          let response = await axios.get("/api/items");
-          console.log(response.data);
-          setItems(response.data);
-        } catch (error) {
-          // handle errors
-          console.error(error);
-        }
-      };
-
-      fetchItems();
-    }
-  }; */
-
+  //Function called on receiving updateItemsByCategory function from FilterMenu. Pass data to parent (App.jsx) to update which items are displayed
   const updateCategoryFilter = (selectedCategory, filterOn) => {
     updateCategoryView(selectedCategory, filterOn);
   };
