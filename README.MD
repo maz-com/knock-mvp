@@ -1,27 +1,104 @@
-# Knock
+# Knock!
 
-## About KNOCK
+## About KNOCK!
 
-Knock! was developed as an MVP project while studying on the Full Stack Development bootcamp at CodeOp. Knock! is a platform that facilitates sharing useful tools and household items amongst neighbours, encouraging users to buy less and connect with their local community.
+Knock! was developed by Mara Caldarini as their first MVP project during the Full Stack Development bootcamp at CodeOp. It is a JavaScript full stack app, a frontend built in React, an API built in Node/Express, and a MySQL database.
+
+The platform enables neighbors to share tools and household items, fostering community connections while reducing consumption. It addresses the challenges of social isolation, rising living costs, and excessive consumption in modern urban life. At its core, Knock! promotes a simple idea: buy less, connect more.
+
+## Tech Stack
+
+### Frontend
+
+- React.js
+- ReactRouter
+- Axios
+- Vite
+- CSS
+
+### Backend
+
+- Node.js
+- Express.js
+- MySQL2
+- Axios
+
+### Features
+
+- Browse items you can borrow from your neighbours
+- List items your neighbours can borrow
+- Display your items as currently available or unavailable
+- Contact your neighbor to request an item
+- Share requests for items you are looking to borrow
+- Delete items you are no longer offering
+- Filter items by category
 
 ## Getting Started
 
-Follow the steps below to install your dependencies and start your server:
+### 1. Clone the repository
 
-In your terminal, `cd server` and then:
+If using HTTPS:
 
-`npm install` to install packages.
-`npm run migrate` to set up the databas
+```
+git clone https://github.com/maz-com/my-mvp.git
+```
 
-Then, run `npm start` inside your `server` folder to start your back-end server.
+If using SSH:
 
-In a different terminal, navigate to your main project folder (`my-mvp`) and `cd client`. Then, `npm run dev` to run your client.
+```
+git clone git@github.com:maz-com/my-mvp.git
+```
+
+### 2. Database setup
+
+#### Open MySQL:
+
+If you use MySQL Workbench, open that.
+
+OR:
+If you are using Windows, open the MySQL Command Line Interface (CLI) tool.
+
+OR:
+If you are using a Mac, run `mysql -u root -p` in your terminal to open the MySQL CLI.
+
+#### Create new database:
+
+Create a new database by running `CREATE DATABASE knock;` (or replace `knock` with a name of your choosing).
+
+Check that it worked: If you're using MySQL Workbench, you should see your new database name in your database list on the left.
+
+If you're using the MySQL CLI (Mac or Windows), run SHOW DATABASES; to see a list of your databases: the new one should be there.
+
+#### Add .env file:
+
+Create a `.env` file (in the root project directory) to store your database connection information. You can follow the format example below. It should include the name of your project's database, as well as your host, MySQL username and password.
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=YOURPASSWORD
+DB_NAME=YOURDATABASE
+```
+
+### 3. Server setup
+
+In your terminal, `cd server` and run `npm install` to install server-packages.
+
+Run `npm run migrate` to create all database tables.
+
+Then, run `npm start` to start your back-end server.
+
+### 4. Client setup
+
+In a different terminal, `cd client` and run `npm install` to install client-side dependecies.
+
+Then, `npm run dev` to run your client.
 
 ## Set up explained
 
 ### 1. Database
 
-The database is set up to hard code 6 items and 3 users when you run `npm run migrate`.
+The database is currently set up to hard code 6 items and 3 users when you run `npm run migrate`.
 
 ### 2. Routes
 
@@ -29,10 +106,9 @@ Check the itemsController.js file in server > controllers and the index.js file 
 
 ### 3. Components
 
-I have created this diagram to help you visualise how all the components relate to eachother.
 ![Components layout](server/support/components-layout.png)
 
-## Feature Extension ideas
+## Future extensions
 
 Below are some ideas for feature extensions:
 
